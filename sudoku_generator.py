@@ -1,4 +1,5 @@
-import math,random
+import math,random,pygame
+
 
 """
 This was adapted from a GeeksforGeeks article "Program for Sudoku Generator" 
