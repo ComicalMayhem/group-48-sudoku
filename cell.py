@@ -25,3 +25,9 @@ class Cell:
             sketch_font = pygame.font.Font(None, 25)
             text = sketch_font.render(str(self.sketched_value), True, (128, 128, 128))
             self.screen.blit(text, (x + 5, y + 5))
+    
+    def set_cell_value(self, value):
+        self.value = value
+
+    def set_sketched_value(self, value):
+        self.sketched_value = value
