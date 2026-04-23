@@ -8,3 +8,13 @@
 # Group 48 Project Notes
 
 I guess we can just use this repo as our main thing. Let's hope we don't run into too many merge conflicts. 
+
+## Checklist to Completion
+1. Button (probably just a rect) that resets the board state (reset_to_original function in Board class)
+2. Binding Board.clear to some keypress. Maybe backspace or delete, or both. Essentially removing a sketched or placed number
+3. Button to sumbit the board to the program. Leads to game lose or game win screen, probably should call Board.is_full, Board.find_empty, and Board.check_board. If it fails, maybe have something print to the pygame window and let the game continue?
+4. Game over screen, with the result of the sudoku puzzle.
+5. Idk if this is needed, but we could take all of sudoku.py, shove it into a main function inside of sudoku.py, then call the main function.
+6. Optimizing and testing. 
+
+I've decided to be extra and make the window resizable, because it pisses me off when its not. I can do 1 and 3 if you don't want to deal with fixing a rect with respect to window size, though it shouldn't be too hard: the variable x should be bound to window width and y to window height. Multiplying these by some decimal should fix the position of a given rect relative to the window. Check how I did the easy, medium, and hard buttons for reference. 

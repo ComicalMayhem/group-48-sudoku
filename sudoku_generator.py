@@ -1,4 +1,4 @@
-import math,random,pygame
+import math,random,pygame,copy
 
 
 """
@@ -24,6 +24,7 @@ class SudokuGenerator:
 	Return:
 	None
     '''
+    solution = []
     def __init__(self, row_length, removed_cells):
         try:
             assert isinstance(removed_cells,int)
@@ -231,6 +232,7 @@ class SudokuGenerator:
     '''
     def remove_cells(self):
         t = 0
+        SudokuGenerator.solution = copy.deepcopy(self.board)
         while t < self.removed_cells:
             x,y = random.randint(0,8),random.randint(0,8)
             if self.board[x][y] == 0:
