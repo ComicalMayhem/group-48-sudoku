@@ -1,6 +1,5 @@
 import pygame
 
-
 class Cell:
     def __init__(self, value, row, col, screen):
         self.value = value
@@ -10,8 +9,15 @@ class Cell:
         self.screen = screen
         self.selected = False
 
+    def set_cell_value(self, value):
+        self.value = value
+
+    def set_sketched_value(self, value):
+        self.sketched_value = value
+
     def draw(self):
         font = pygame.font.Font(None, 40)
+        # 60x60 cell size based on a 540x540 board
         x = self.col * 60
         y = self.row * 60
 
