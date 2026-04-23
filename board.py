@@ -1,6 +1,7 @@
 import pygame
 from cell import Cell
 from sudoku_generator import generate_sudoku, SudokuGenerator
+
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width=width
@@ -8,7 +9,7 @@ class Board:
         self.screen=screen
         self.difficulty=difficulty
         if difficulty == "easy":
-            removed_cells=1
+            removed_cells=30
         elif difficulty == "medium":
             removed_cells=40
         elif difficulty == "hard":
@@ -21,9 +22,9 @@ class Board:
         self.original_board = [[self.board_values[r][c] for c in range(9)] for r in range(9)]
         self.selected_cell=None
     def draw (self):
-        for r  in range(9):
+        for r in range(9):
             for c in range(9):
-                self.cells[r][c].draw()
+                self.cells[r][c].draw(self.width//9)
         cell_size=self.width//9
         for i in range (10):
             if i % 3 == 0:
@@ -39,13 +40,12 @@ class Board:
         self.cells[row][col].selected = True
         self.selected_cell = (row, col)
     def click(self, x, y):
-        if x< self.width and y<self.height:
+        if x < self.screen.get_size()[0] and y < self.screen.get_size()[1]:
             cell_size=self.width//9
             row=y//cell_size
             col=x//cell_size
             return (row,col)
         return None
-
     def clear(self):
         if self.selected_cell:
             r, c = self.selected_cell
